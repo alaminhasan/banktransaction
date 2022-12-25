@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="heading container">Bangladehs Krish Bank Transaction</h1>
+    <div class="box_contianer container">
+      <div class="box1">
+        <h5>Deposit</h5>
+        <h1>$ <span id="deposit_amount">00</span></h1>
+      </div>
+      
+      <div class="box2">
+        <h5>Withdraw</h5>
+        <h1>$<span id="withdraw_amount">00</span></h1>
+      </div>
+      
+       <div class="box3">
+        <h5>Balance</h5>
+        <h1>$<span id="balance_amount">00</span></h1>
+      </div>
+      
+    </div>
+  
+    <div class="action_area container">
+      <div class="action_area_box">
+        <h1>Deposit</h1>
+        <input type="text" placeholder="amount you want to deposit" value="0" id="input_deposit">
+        <button id="deposit_btn">Deposit</button>
+      </div>
+      
+      <div class="action_area_box">
+        <h1>Withdraw</h1>
+        <input type="text" placeholder="amount you want to withdraw" id="input_withdraw" value="">
+        <button id="withdraw_btn">Withdraw</button>
+      </div>
+    </div>
+  <script>
+  const depositButton = document.getElementById("deposit_btn");
+const withdrawButton = document.getElementById("withdraw_btn");
+const depositAmount = document.getElementById("deposit_amount");
+const withdrawAmount = document.getElementById("withdraw_amount");
+const balanceAmount = document.getElementById("balance_amount");
+const inputDepositAmount = document.getElementById("input_deposit");
+const inputWithdrawAmount = document.getElementById("input_withdraw");
+
+depositButton.addEventListener("click", function(){
+  var totalDeposit = parseInt(depositAmount.innerHTML) + parseInt(inputDepositAmount.value);
+  depositAmount.innerHTML= totalDeposit;
+  var totalBalance = parseInt(balanceAmount.innerHTML) + parseInt(inputDepositAmount.value);
+  balanceAmount.innerHTML = totalBalance;
+
+})
+
+withdrawButton.addEventListener("click", function(){
+  var totalwithdraw = parseInt(withdrawAmount.innerHTML) + parseInt(inputWithdrawAmount.value);
+  withdrawAmount.innerHTML= totalwithdraw;
+  var totalBalance = parseInt(balanceAmount.innerHTML) - parseInt(inputWithdrawAmount.value);
+  balanceAmount.innerHTML = totalBalance;
+})
+  </script>
+</body>
+</html>
